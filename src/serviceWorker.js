@@ -20,7 +20,8 @@ const isLocalhost = Boolean(
     )
 );
 
-export function register(config) {
+export function register(config, callback) {
+  console.log('TEEEEEEEEST')
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -41,6 +42,7 @@ export function register(config) {
         // Add some additional logging to localhost, pointing developers to the
         // service worker/PWA documentation.
         navigator.serviceWorker.ready.then(() => {
+          callback()
           console.log(
             'This web app is being served cache-first by a service ' +
               'worker. To learn more, visit https://bit.ly/CRA-PWA'
